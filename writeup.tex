@@ -37,6 +37,49 @@ lab writeup.
 
 \section*{Approach}
 
+This is not a real lab in the sense that you will not be collecting data 
+yourself.
+The purpose is to practice writing lab reports, so data for the task of
+energy calibration will be provided to you.
+Of course, students are welcome to collecting their own callibration spectra
+from any of the available HPGe detectors, but the emphasis must be on 
+fulfilling the software-related tasks discussed below.
+
+\subsubsection*{Data}
+
+The data used for this experiment has already been collected.
+It consists of pulse height spectra taken with a coaxial HPGe detector using 
+5 different radionuclide calibration sources: \ce{^{241}Am}, \ce{^{133}Ba},
+\ce{^{137}Cs}, \ce{^{60}Co}, and \ce{^{152}Eu}.
+The MCA with which the data was collected had 13-bit resolution, yielding 8192
+channels.
+The data for all five pulse height spectra are stored in a single text file in
+ASCII format. 
+The first row of the file is a header indicating which radionuclide the 
+data in the columns correspond to, followed by 8192 rows indicating the number
+of counts measured in each MCA channel.
+The link to the data file and the corresponding md5 checksum are available at:
+\begin{itemize}
+  \item {\bf Data:} \url{https://www.dropbox.com/s/k692avun0144n90/lab0_spectral_data.txt?dl=0}
+  \item {\bf Checksum:} \url{https://www.dropbox.com/s/6jquiryg6jskii0/lab0_spectral_data.md5?dl=0}
+\end{itemize}
+
+{\bf Required}
+\begin{itemize}
+  \item Implement the "data" command in the Makefile such that the data at the 
+        above link will be downloaded when the user types "make data". 
+        \textit{Hint: take a look at "wget" or "curl" - command line tools 
+                used for downloading files}
+\end{itemize}
+
+{\bf Optional}
+\begin{itemize}
+  \item Implement a "validate" command in the Makefile that will compute the
+        md5 checksum for the downloaded data, and compare it against the 
+        provided checksum to verify that the data has not been corrupted.
+        \textit{Hint: the md5sum command with the -c flag might prove useful.}
+\end{itemize}
+
 \section*{Report}
 
 \end{document}
