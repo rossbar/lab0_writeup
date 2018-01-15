@@ -66,7 +66,7 @@ The link to the data file and the corresponding md5 checksum are available at:
 
 {\bf Required}
 \begin{itemize}
-  \item Implement the "data" command in the Makefile such that the data at the 
+  \item Implement the ``data'' command in the Makefile such that the data at the 
         above link will be downloaded when the user types "make data". 
         \textit{Hint: take a look at "wget" or "curl" - command line tools 
                 used for downloading files}
@@ -74,12 +74,76 @@ The link to the data file and the corresponding md5 checksum are available at:
 
 {\bf Optional}
 \begin{itemize}
-  \item Implement a "validate" command in the Makefile that will compute the
+  \item Implement a ``validate'' command in the Makefile that will compute the
         md5 checksum for the downloaded data, and compare it against the 
         provided checksum to verify that the data has not been corrupted.
         \textit{Hint: the md5sum command with the -c flag might prove useful.}
 \end{itemize}
 
+\subsubsection*{Analysis}
+
+Once the calibration data has been successfully downloaded, the energy 
+calibration can be done.
+The first step will be to load the calibration data into IPython 
+\textit{Hint: check out np.loadtxt}.
+The next task is to determine the centroids of the peaks in the pulse height
+spectrum that correspond to known gamma-ray energies
+\textit{Hint: your experience with scipy.optimize.curve\_fit from the first
+        lab session should prove useful here}.
+Finally, once the parameters of the energy calibration model have been 
+determined, the quality of the calibration should be evaluated by applying it
+to one of the pulse height spectra that was not used in the calibration 
+procedure.
+Compare the calibrated peak locations to their ``true'' values as specified in
+the nuclear data literature.
+To minimize the amount of effort required for the calibration itself, the
+following procedure is proposed:
+
+{\bf Required}
+\begin{itemize}
+  \item Conduct a two-point, linear energy calibration using the 59.541 keV
+        peak from \ce{^{241}Am} and the 661.657 keV peak from \ce{^{137}Cs}.
+  \item Apply the linear calibration model to the \ce{^{133}Ba} dataset and 
+        quantify the difference between the calibrated peak locations and the 
+        expected peak locations based on the literature.
+\end{itemize}
+
+{\bf Optional}
+\begin{itemize}
+  \item Use more than two points to determine the parameters of the linear
+        calibration model via regression methods.
+  \item Use data from the other sources (e.g. \ce{^{152}Eu}) to evaluate the
+        energy calibration.
+\end{itemize}
+
+This analysis should result in the production of \textit{at least} one figure
+that will be included in the report.
+The generation of these figures should be automated by implementing the 
+``analysis'' command in the Makefile.
+
+\subsubsection*{Testing}
+
+{\bf Required}
+\begin{itemize}
+  \item Design and implement \textit{at least one} unit test for your data
+        analysis code.
+\end{itemize}
+
 \section*{Report}
+
+Make sure to update the project README.md with instructions for how to 
+download the data, replicate your analysis, run your software test suite, and
+produce the report document.
+The report itself should contain the following:
+
+\begin{enumerate}
+  \item Describe the motivations and goals of this experiment. Why is energy
+        calibration of detectors important?
+  \item Discuss the approach to the energy calibration (N.B. there is no
+        ``experimental setup'' in this case).
+  \item Present the results of your energy calibration and include any
+        relevant discussion.
+\end{enumerate}
+
 
 \end{document}
