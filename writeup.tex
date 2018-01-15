@@ -28,10 +28,10 @@ course.
 Energy calibration of a HPGe detector (a ubiquitous task in radiation detection
 laboratories) will be used as an example for practicing the workflow.
 You must implement an approach to downloading data (see next section), 
-extracting the spectral information, and using it to determine an energy 
+extract the spectral information, and use it to develop a model for energy 
 calibration. 
-The energy calibration will then be evaluated using (at least) one of the data
-sets that was not used in the calibration procedure.
+The energy calibration will then be evaluated using (at least) one of the 
+datasets that was not used in the calibration procedure.
 These results, along with any relevant discussion, are to be included in the
 lab writeup.
 
@@ -41,7 +41,7 @@ This is not a real lab in the sense that you will not be collecting data
 yourself.
 The purpose is to practice writing lab reports, so data for the task of
 energy calibration will be provided to you.
-Of course, students are welcome to collecting their own callibration spectra
+Of course, students are welcome to collect their own callibration spectra
 from any of the available HPGe detectors, but the emphasis must be on 
 fulfilling the software-related tasks discussed below.
 
@@ -66,18 +66,21 @@ The link to the data file and the corresponding md5 checksum are available at:
 
 {\bf Required}
 \begin{itemize}
-  \item Implement the ``data'' command in the Makefile such that the data at the 
-        above link will be downloaded when the user types "make data". 
-        \textit{Hint: take a look at "wget" or "curl" - command line tools 
-                used for downloading files}
+  \item Implement the {\tt data} command in the {\tt Makefile} such that the
+        data at the above link will be downloaded when the user types
+        {\tt make data}. 
+        \textit{Hint: take a look at {\tt wget} or {\tt curl} - command line tools 
+                used for downloading files}.
 \end{itemize}
 
 {\bf Optional}
 \begin{itemize}
-  \item Implement a ``validate'' command in the Makefile that will compute the
-        md5 checksum for the downloaded data, and compare it against the 
-        provided checksum to verify that the data has not been corrupted.
-        \textit{Hint: the md5sum command with the -c flag might prove useful.}
+  \item Implement a {\tt validate} command in the {\tt Makefile} that will
+        compute the md5 checksum for the downloaded data, and compare it
+        against the provided checksum to verify that the data has not
+        been corrupted.
+        \textit{Hint: the {\tt md5sum} command with the {\tt -c} flag might
+                prove useful.}
 \end{itemize}
 
 \subsubsection*{Analysis}
@@ -85,10 +88,10 @@ The link to the data file and the corresponding md5 checksum are available at:
 Once the calibration data has been successfully downloaded, the energy 
 calibration can be done.
 The first step will be to load the calibration data into IPython 
-\textit{Hint: check out np.loadtxt}.
+\textit{Hint: check out {\tt np.loadtxt}}.
 The next task is to determine the centroids of the peaks in the pulse height
 spectrum that correspond to known gamma-ray energies
-\textit{Hint: your experience with scipy.optimize.curve\_fit from the first
+\textit{Hint: your experience with {\tt scipy.optimize.curve\_fit} from the first
         lab session should prove useful here}.
 Finally, once the parameters of the energy calibration model have been 
 determined, the quality of the calibration should be evaluated by applying it
@@ -119,7 +122,7 @@ following procedure is proposed:
 This analysis should result in the production of \textit{at least} one figure
 that will be included in the report.
 The generation of these figures should be automated by implementing the 
-``analysis'' command in the Makefile.
+{\tt analysis} command in the {\tt Makefile}.
 
 \subsubsection*{Testing}
 
@@ -131,9 +134,9 @@ The generation of these figures should be automated by implementing the
 
 \section*{Report}
 
-Make sure to update the project README.md with instructions for how to 
+Make sure to update the project {\tt README.md} with instructions for how to 
 download the data, replicate your analysis, run your software test suite, and
-produce the report document.
+generate the document.
 The report itself should contain the following:
 
 \begin{enumerate}
