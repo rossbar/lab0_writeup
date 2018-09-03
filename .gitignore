@@ -1,3 +1,9 @@
+# LaTeX cruft
+*.aux
+*.log
+*.out
+*.pdf
+
 # Python cruft
 *.pyc
 
